@@ -14,6 +14,9 @@
                 hint: "leave it blank if you don't want to change it",
                 required: false,
                 input_html: { autocomplete: "new-password" } %>
+    <%= f.input :username,
+                required: true,
+                input_html: { autocomplete: "name" }%>
     <%= f.input :password_confirmation,
                 required: false,
                 input_html: { autocomplete: "new-password" } %>
