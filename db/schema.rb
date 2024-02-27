@@ -14,6 +14,19 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_27_112545) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "bookings", force: :cascade do |t|
+    t.date "date_begin", default: "2024-02-27", null: false
+    t.date "date_end"
+    t.bigint "game_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "review_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["game_id"], name: "index_bookings_on_game_id"
+    t.index ["review_id"], name: "index_bookings_on_review_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
+
   create_table "games", force: :cascade do |t|
     t.string "name"
     t.string "type"
@@ -50,5 +63,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_27_112545) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "bookings", "games"
+  add_foreign_key "bookings", "reviews"
+  add_foreign_key "bookings", "users"
   add_foreign_key "games", "users", column: "owner_id"
 end
