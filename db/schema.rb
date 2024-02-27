@@ -19,7 +19,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_27_134713) do
     t.date "date_end"
     t.bigint "game_id", null: false
     t.bigint "user_id", null: false
-    t.bigint "review_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "rating"
