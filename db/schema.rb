@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_27_112545) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_27_134713) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -19,9 +19,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_27_112545) do
     t.date "date_end"
     t.bigint "game_id", null: false
     t.bigint "user_id", null: false
-    t.bigint "review_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "rating"
+    t.string "review"
     t.index ["game_id"], name: "index_bookings_on_game_id"
     t.index ["review_id"], name: "index_bookings_on_review_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
@@ -34,15 +35,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_27_112545) do
     t.decimal "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "owner_id"
-    t.index ["owner_id"], name: "index_games_on_owner_id"
-  end
-
-  create_table "reviews", force: :cascade do |t|
-    t.string "content"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "rating"
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_games_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -64,7 +58,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_27_112545) do
   end
 
   add_foreign_key "bookings", "games"
-  add_foreign_key "bookings", "reviews"
   add_foreign_key "bookings", "users"
-  add_foreign_key "games", "users", column: "owner_id"
+  add_foreign_key "games", "users"
 end
