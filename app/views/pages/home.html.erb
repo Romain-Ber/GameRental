@@ -2,7 +2,7 @@
 <p>Find me in app/views/pages/home.html.erb</p>
 
 <%= link_to "Games List", games_path %>
-
+<%= link_to "Bookings List", bookings_path %>
 
 
 <% if user_signed_in? %>
@@ -10,4 +10,3 @@
 <% else %>
   <%= link_to "Login", new_user_session_path, class: "nav-link" %>
 <% end %>
-
