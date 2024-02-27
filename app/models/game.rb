@@ -5,7 +5,7 @@ class Game < ApplicationRecord
   has_many :users, through: :bookings
   has_many :users, through: :wishlist
   has_many_attached :photos
-  TYPES = ["Card Game", "Board Game", "Sport Game", "Digital Game"]
-  validates :type, inclusion: { in: TYPES }
-  validates :name, :type, :content, :price, :owner_id, presence: true
+  GAME_TYPES = ["Card Game", "Board Game", "Sport Game", "Digital Game"]
+  validates :game_type, inclusion: { in: GAME_TYPES }
+  validates :name, :game_type, :content, :price, :user, presence: true
 end
