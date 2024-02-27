@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_27_151315) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_27_155003) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -29,7 +29,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_27_151315) do
 
   create_table "games", force: :cascade do |t|
     t.string "name"
-    t.string "type"
+    t.string "game_type"
     t.string "content"
     t.decimal "price"
     t.datetime "created_at", null: false
@@ -54,9 +54,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_27_151315) do
   create_table "wishlists", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.bigint "game_id"
+    t.index ["game_id"], name: "index_wishlists_on_game_id"
+    t.index ["user_id"], name: "index_wishlists_on_user_id"
   end
 
   add_foreign_key "bookings", "games"
   add_foreign_key "bookings", "users"
   add_foreign_key "games", "users"
+  add_foreign_key "wishlists", "games"
+  add_foreign_key "wishlists", "users"
 end
