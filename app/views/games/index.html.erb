@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <% unless @games.nil? %>
+        <% @games.each do |game| %>
+          <div>
+            <%= game.name %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
