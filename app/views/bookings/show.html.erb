@@ -13,9 +13,11 @@
           <p>Message: <%= @booking.message %></p>
           <p>Status: <%= @booking.status %></p>
         </div>
+        <%= link_to "Cancel", cancel_booking_path(@booking), data: {turbo_method: :delete, turbo_confirm: "Cancel this booking?"}, class: "btn btn-primary py-2" %>
       </div>
     </div>
   </div>
+  <br>
   <div style="width: 100%; height: 600px;"
     data-controller="map"
     <% if @game_marker.present? %>
