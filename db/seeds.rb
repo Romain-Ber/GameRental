@@ -1,11 +1,11 @@
 User.destroy_all
-florian = User.create!(username: "florian", email: "florian@gmail.com", password: "111111")
-romain = User.create!(username: "romain", email: "romain@gmail.com", password: "111111")
-knnll = User.create!(username: "knnll", email: "knnll@gmail.com", password: "111111")
-cedric = User.create!(username: "cédric", email: "cédric@gmail.com", password: "111111")
-marine = User.create!(username: "marine", email: "marine@gmail.com", password: "111111")
-perrine = User.create!(username: "perrine", email: "perrine@gmail.com", password: "111111")
-mathieu = User.create!(username: "mathieu", email: "mathieu@gmail.com", password: "111111")
+florian = User.create!(username: "florian", email: "florian@gmail.com", password: "111111", address: "La Piste, Rennes")
+romain = User.create!(username: "romain", email: "romain@gmail.com", password: "111111", address: "La Piste, Rennes")
+knnll = User.create!(username: "knnll", email: "knnll@gmail.com", password: "111111", address: "La french tech, Rennes")
+cedric = User.create!(username: "cédric", email: "cédric@gmail.com", password: "111111", address: "La french tech, Rennes")
+marine = User.create!(username: "marine", email: "marine@gmail.com", password: "111111", address: "Chateaubourg")
+perrine = User.create!(username: "perrine", email: "perrine@gmail.com", password: "111111", address: "La Piste, Rennes")
+mathieu = User.create!(username: "mathieu", email: "mathieu@gmail.com", password: "111111", address: "La french tech, Rennes")
 
 puts "seeded #{User.count} users"
 
