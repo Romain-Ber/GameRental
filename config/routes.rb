@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   root to: "pages#home"
   # root to: "games#index"
   resources :games do
+    collection do
+      get :my_offers
+    end
     resources :bookings, only: [:new, :create]
   end
   resources :bookings, only: [:index, :show] do

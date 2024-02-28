@@ -5,7 +5,7 @@
     <div class="col">
       <% unless @games.nil? %>
         <% @games.each do |game| %>
-          <% if game.user_id != current_user.id %>
+          <% if game.user_id == current_user.id %>
             <%= link_to game_path(game), class:"text-decoration-none" do %>
               <div class="game-card">
                 <p>Game: <%= game.name %></p>
@@ -20,10 +20,4 @@
       <% end %>
     </div>
   </div>
-</div>
-
-<div style="width: 100%; height: 600px;"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
