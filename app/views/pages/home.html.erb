@@ -1,9 +1,9 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
 
-<%= link_to "Games List", games_path %>
-<%= link_to "Bookings List", bookings_path %>
-
+<%= link_to "Games List", games_path, class: "btn btn-primary py-2" %>
+<%= link_to "My Pending Requests", pending_booking_bookings_path, class: "btn btn-primary py-2" %>
+<%= link_to "My Pending Clients", pending_client_bookings_path, class: "btn btn-primary py-2" %>
 
 <% if user_signed_in? %>
   <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "nav-link" %>
