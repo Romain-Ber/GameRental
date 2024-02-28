@@ -9,12 +9,10 @@ class GamesController < ApplicationController
         lng: game.longitude
       }
     end
-    @query_type = "user"
   end
 
   def my_offers
     @games = Game.all
-    @query_type = "owner"
   end
 
   def show
