@@ -1,0 +1,20 @@
+<h1>Modifier le jeu</h1>
+<%= form_with(model: @game, url: game_path(@game), method: :patch) do |form| %>
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+  <div class="field">
+    <%= form.label :game_type %>
+    <%= form.select :game_type, Game::GAME_TYPES %>
+  </div>
+  <div class="field">
+    <%= form.label :content %>
+    <%= form.text_area :content %>
+  </div>
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.number_field :price %>
+  </div>
+  <%= form.submit "Modifier l'offre de jeu" %>
+<% end %>
