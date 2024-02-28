@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: %i[ show ]
+  before_action :set_booking, only: %i[ show cancel ]
   def index
     @bookings = Booking.all
   end
@@ -40,6 +40,11 @@ class BookingsController < ApplicationController
     else
       render 'new', status: :unprocessable_entity
     end
+  end
+
+  def cancel
+    @booking.destroy
+    redirect_to pending_booking_bookings_path, status: :see_other
   end
 
   private

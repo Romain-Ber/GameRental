@@ -14,5 +14,8 @@ Rails.application.routes.draw do
       get :pending_booking
       get :pending_client
     end
+    member do
+      delete :cancel
+    end
   end
 end
