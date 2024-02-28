@@ -4,9 +4,16 @@
     <div class="col">
       <% unless @bookings.nil? %>
         <% @bookings.each do |booking| %>
-          <div>
-            <p>Booking ID: <%= booking.id %></p>
-          </div>
+          <%= link_to booking_path(booking), class:"text-decoration-none" do %>
+            <div class="booking-card">
+              <p>@<%= booking.user.username %>, <%= booking.created_at %></p>
+              <p>Message: <%= booking.message %></p>
+              <p>Status: <%= booking.status %></p>
+              <br>
+              <p>Game: <%= booking.game.name %> (category: "<%= booking.game.game_type %>")</p>
+              <p>Price: <%= booking.game.price %>€</p>
+            </div>
+          <% end %>
         <% end %>
       <% end %>
     </div>
