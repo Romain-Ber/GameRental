@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: %i[ show ]
+  before_action :set_booking, only: %i[ show client ]
   def index
     @bookings = Booking.all
   end
@@ -7,18 +7,25 @@ class BookingsController < ApplicationController
   def pending_booking
     @user = current_user
     @bookings = Booking.where(user_id: @user.id, status: "pending")
+    @query_type = "request"
   end
 
   def pending_client
     @user = current_user
     @bookings = Booking.joins(:game).where(games: { user_id: @user.id })
+    @query_type = "client"
   end
 
   def show
+    @query_type = params[:query_type]
     @game_marker = {
       lat: @booking.game.latitude,
       lng: @booking.game.longitude
     }
+  end
+
+  def client
+
   end
 
   def new
