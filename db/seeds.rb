@@ -1,3 +1,4 @@
+Game.destroy_all
 User.destroy_all
 florian = User.create!(username: "florian", email: "florian@gmail.com", password: "111111", address: "La Piste, Rennes")
 romain = User.create!(username: "romain", email: "romain@gmail.com", password: "111111", address: "La Piste, Rennes")
@@ -9,7 +10,6 @@ mathieu = User.create!(username: "mathieu", email: "mathieu@gmail.com", password
 
 puts "seeded #{User.count} users"
 
-Game.destroy_all
 Game.create!(name: "Poker", game_type: "Card Game", content: "Texas Hold'em!! Yeehaw!!", price: 5, user: florian)
 Game.create!(name: "Poker", game_type: "Card Game", content: "Ma malette de poker est meilleure que Flo", price: 7, user: romain)
 Game.create!(name: "Monopoly", game_type: "Board Game", content: "Destructeur de relations", price: 5, user: marine)
