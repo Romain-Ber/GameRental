@@ -10,7 +10,6 @@ class BookingsController < ApplicationController
   end
 
   def create
-    # t
     @game = Game.find(params[:game_id])
     @user = current_user
     @booking = Booking.new(params_booking)
