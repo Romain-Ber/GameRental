@@ -1,4 +1,5 @@
-<h1>Modifier le jeu</h1>
+<h1>Edit my offer</h1>
+<%= link_to "Back to my offer details", game_path(@game, query_type: "owner"), class:"btn btn-primary py-2" %>
 <%= form_with(model: @game, url: game_path(@game), method: :patch) do |form| %>
   <div class="field">
     <%= form.label :name %>
