@@ -15,6 +15,10 @@ class BookingsController < ApplicationController
   end
 
   def show
+    @game_marker = {
+      lat: @booking.game.latitude,
+      lng: @booking.game.longitude
+    }
   end
 
   def new
