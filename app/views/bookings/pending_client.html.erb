@@ -4,7 +4,7 @@
     <div class="col">
       <% unless @bookings.nil? %>
         <% @bookings.each do |booking| %>
-          <%= link_to booking_path(booking, query_type: "client"), class:"text-decoration-none" do %>
+          <%= link_to booking_path(booking, query_type: "owner"), class:"text-decoration-none" do %>
             <div class="booking-card">
               <p>@<%= booking.user.username %>, <%= booking.created_at %></p>
               <p>Message: <%= booking.message %></p>

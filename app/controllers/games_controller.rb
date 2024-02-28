@@ -9,13 +9,16 @@ class GamesController < ApplicationController
         lng: game.longitude
       }
     end
+    @query_type = "user"
   end
 
   def my_offers
     @games = Game.all
+    @query_type = "owner"
   end
 
   def show
+    @query_type = params[:query_type]
     @game_marker = {
       lat: @game.latitude,
       lng: @game.longitude

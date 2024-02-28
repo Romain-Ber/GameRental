@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   # root to: "games#index"
   resources :games do
     collection do
+      get :index
       get :my_offers
     end
     resources :bookings, only: [:new, :create]
