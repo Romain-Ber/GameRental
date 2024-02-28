@@ -23,6 +23,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_28_121306) do
     t.datetime "updated_at", null: false
     t.integer "rating"
     t.string "review"
+    t.string "message"
     t.index ["game_id"], name: "index_bookings_on_game_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
