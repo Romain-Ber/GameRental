@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :games do
     resources :bookings, only: [:new, :create]
   end
-  resources :bookings, only: [:index] do
+  resources :bookings, only: [:index, :show] do
     collection do
       get :pending_booking
       get :pending_client

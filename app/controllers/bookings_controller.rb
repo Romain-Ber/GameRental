@@ -1,17 +1,20 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: %i[]
+  before_action :set_booking, only: %i[ show ]
   def index
     @bookings = Booking.all
   end
 
   def pending_booking
     @user = current_user
-    @bookings = Booking.where(user_id: @user.id, booked: false)
+    @bookings = Booking.where(user_id: @user.id, status: "pending")
   end
 
   def pending_client
     @user = current_user
     @bookings = Booking.joins(:game).where(games: { user_id: @user.id })
+  end
+
+  def show
   end
 
   def new
@@ -26,6 +29,7 @@ class BookingsController < ApplicationController
     @booking.game = @game
     @booking.user = @user
     @booking.date_begin = Date.today
+    @booking.status = "pending"
     if @booking.save
       redirect_to game_path(@game)
     else
@@ -40,6 +44,6 @@ class BookingsController < ApplicationController
   end
 
   def params_booking
-    params.require(:booking).permit(:date_begin, :date_end, :rating, :review, :message, :game_id, :user_id)
+    params.require(:booking).permit(:date_begin, :date_end, :rating, :review, :message, :game_id, :user_id, :status)
   end
 end

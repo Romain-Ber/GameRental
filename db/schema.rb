@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_28_155021) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_28_194630) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -24,7 +24,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_28_155021) do
     t.integer "rating"
     t.string "review"
     t.string "message"
-    t.boolean "booked", default: false
+    t.string "status"
     t.index ["game_id"], name: "index_bookings_on_game_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
