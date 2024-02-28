@@ -41,6 +41,7 @@
           <p>Price: <%= @game.price %>€</p>
           <p>@<%= @game.user.username %></p>
         </div>
+        <%= link_to "Remove", game_path(@game), data: {turbo_method: :delete, turbo_confirm: "Remove this game from my offers?"}, class: "btn btn-primary py-2" %>
       </div>
     </div>
   </div>

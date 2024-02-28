@@ -50,7 +50,8 @@ class GamesController < ApplicationController
   end
 
   def destroy
-
+    @game.destroy
+    redirect_to my_offers_games_path, status: :see_other
   end
 
   private
