@@ -11,6 +11,10 @@ class GamesController < ApplicationController
     end
   end
 
+  def my_offers
+    @games = Game.all
+  end
+
   def show
     @game_marker = {
       lat: @game.latitude,

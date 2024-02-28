@@ -1,23 +1,21 @@
 <h1>Game Show</h1>
 <%= link_to "Back to Games", games_path, class: "btn btn-primary py-2" %>
 <div class="container">
-  <div class="top">
-    <i class="fa-solid fa-arrow-left"></i>
-    <h2><%= @game.name %></h2>
-  </div>
-  <div class="game-details">
-    <div class="top-info">
-      <h3 class="game-type"><%= @game.game_type %></h3>
-      <h4><%= @game.user.username %></h4>
+  <div class="row">
+    <div class="col">
+      <div class="game-card">
+        <p>Game: <%= @game.name %></p>
+        <p>Type: <%= @game.game_type %></p>
+        <p>Description: <%= @game.content %></p>
+        <p>Price: <%= @game.price %>€</p>
+        <p>@<%= @game.user.username %></p>
+      </div>
+      <%= link_to "Book this game", new_game_booking_path(@game), class: "btn btn-primary" %>
+      <%= link_to "Edit this game", edit_game_path(@game), class: "btn btn-primary" %>
     </div>
-    <p class="content"><%= @game.content %></p>
-    <h3 class="price"><%= @game.price %></h3>
-    <i class="fa-regular fa-heart"></i>
   </div>
 </div>
-<%= link_to "Book this game", new_game_booking_path(@game), class: "btn btn-primary" %>
-<%= link_to "Edit this game", edit_game_path(@game), class: "btn btn-primary" %>
-
+<br>
 <div style="width: 100%; height: 600px;"
   data-controller="map"
   <% if @game_marker.present? %>

@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: %i[ show client ]
+  before_action :set_booking, only: %i[ show ]
   def index
     @bookings = Booking.all
   end
@@ -22,10 +22,6 @@ class BookingsController < ApplicationController
       lat: @booking.game.latitude,
       lng: @booking.game.longitude
     }
-  end
-
-  def client
-
   end
 
   def new
