@@ -12,6 +12,10 @@ class GamesController < ApplicationController
   end
 
   def show
+    @game_marker = {
+      lat: @game.latitude,
+      lng: @game.longitude
+    }
   end
 
   def new
