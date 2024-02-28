@@ -4,13 +4,15 @@
     <div class="col">
       <% unless @games.nil? %>
         <% @games.each do |game| %>
-          <div class="game-card">
-            <p>Game: <%= game.name %></p>
-            <p>Type: <%= game.game_type %></p>
-            <p>Description: <%= game.content %></p>
-            <p>Price: <%= game.price %>€</p>
-            <p>@<%= game.user.username %></p>
-          </div>
+          <%= link_to game_path(game), class:"text-decoration-none" do %>
+            <div class="game-card">
+              <p>Game: <%= game.name %></p>
+              <p>Type: <%= game.game_type %></p>
+              <p>Description: <%= game.content %></p>
+              <p>Price: <%= game.price %>€</p>
+              <p>@<%= game.user.username %></p>
+            </div>
+          <% end %>
         <% end %>
       <% end %>
     </div>
