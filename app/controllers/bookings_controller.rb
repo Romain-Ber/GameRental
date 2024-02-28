@@ -4,6 +4,16 @@ class BookingsController < ApplicationController
     @bookings = Booking.all
   end
 
+  def pending_booking
+    @user = current_user
+    @bookings = Booking.where(user_id: @user.id, booked: false)
+  end
+
+  def pending_client
+    @user = current_user
+    @bookings = Booking.joins(:game).where(games: { user_id: @user.id })
+  end
+
   def new
     @booking = Booking.new
     @game = Game.find(params[:game_id])

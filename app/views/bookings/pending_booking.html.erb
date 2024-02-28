@@ -1,11 +1,11 @@
-<h1>My booking requests</h1>
+<h1>My Pending Requests</h1>
 <div class="container">
   <div class="row">
     <div class="col">
       <% unless @bookings.nil? %>
         <% @bookings.each do |booking| %>
           <div>
-            <%= booking.id if booking.user_id = current_user %>
+            <%= booking.id %>
           </div>
         <% end %>
       <% end %>
