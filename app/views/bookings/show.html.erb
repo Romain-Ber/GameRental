@@ -1,0 +1,27 @@
+<h1>User Booking Show</h1>
+<%= link_to "Back to Pending Bookings", pending_booking_bookings_path, class: "btn btn-primary py-2" %>
+<div class="container">
+  <div class="row">
+    <div class="column">
+      <div class="booking-card">
+        <p>Game: <%= @booking.game.name %> (category: "<%= @booking.game.game_type %>")</p>
+        <p>@<%= @booking.game.user.username %>: <%= @booking.game.content %></p>
+        <p>Price: <%= @booking.game.price %>€</p>
+        <br>
+        <p>@<%= @booking.user.username %>, <%= @booking.created_at %></p>
+        <p>Message: <%= @booking.message %></p>
+        <p>Status: <%= @booking.status %></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="width: 100%; height: 600px;"
+  data-controller="map"
+  <% if @game_marker.present? %>
+    data-map-markers-value="<%= [@game_marker].to_json %>"
+  <% else %>
+    data-map-markers-value="[]"
+  <% end %>
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>
