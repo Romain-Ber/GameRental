@@ -1,6 +1,6 @@
 class Game < ApplicationRecord
-  has_many :wishlists
-  has_many :bookings
+  has_many :wishlists, dependent: :destroy
+  has_many :bookings, dependent: :destroy
   belongs_to :user
   has_many :booked_users, through: :bookings, source: :user
   has_many :wishlisted_users, through: :wishlist, source: :user
@@ -13,7 +13,7 @@ class Game < ApplicationRecord
   after_validation :geocode, if: :will_save_change_to_address?
 
   private
-  
+
   def get_address_from_user
     self.address = user.address
   end
