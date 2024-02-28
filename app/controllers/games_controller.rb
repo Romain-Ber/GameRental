@@ -1,7 +1,14 @@
 class GamesController < ApplicationController
   before_action :set_game, only: %i[ show edit update destroy ]
+
   def index
     @games = Game.all
+    @markers = @games.geocoded.map do |game|
+      {
+        lat: game.latitude,
+        lng: game.longitude
+      }
+    end
   end
 
   def show

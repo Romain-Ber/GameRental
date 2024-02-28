@@ -8,4 +8,13 @@ class Game < ApplicationRecord
   GAME_TYPES = ["Card Game", "Board Game", "Sport Game", "Digital Game"]
   validates :game_type, inclusion: { in: GAME_TYPES }
   validates :name, :game_type, :content, :price, :user, presence: true
+  after_validation :get_address_from_user
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
+
+  private
+  
+  def get_address_from_user
+    self.address = user.address
+  end
 end
