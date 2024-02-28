@@ -23,11 +23,16 @@ class GamesController < ApplicationController
   end
 
   def create
-    @game = Game.new
+    @game = Game.new(params_game)
+    @game.user = current_user
+    if @game.save
+      redirect_to game_path(@game), notice: "L'offre de jeu a été créée avec succès."
+    else
+      render 'new', status: :unprocessable_entity
+    end
   end
 
   def edit
-
   end
 
   def update
@@ -45,6 +50,6 @@ class GamesController < ApplicationController
   end
 
   def params_game
-    params.require(:game).permit(:name, :type, :content, :price, :photos)
+    params.require(:game).permit(:name, :game_type, :content, :price, :photos)
   end
 end
