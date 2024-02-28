@@ -7,13 +7,11 @@ class BookingsController < ApplicationController
   def pending_booking
     @user = current_user
     @bookings = Booking.where(user_id: @user.id, status: "pending")
-    @query_type = "user"
   end
 
   def pending_client
     @user = current_user
     @bookings = Booking.joins(:game).where(games: { user_id: @user.id })
-    @query_type = "owner"
   end
 
   def show
