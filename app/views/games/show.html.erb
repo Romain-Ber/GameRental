@@ -1,27 +1,47 @@
-<h1>Game Show</h1>
-<%= link_to "Back to Games", games_path, class: "btn btn-primary py-2" %>
-<div class="container">
-  <div class="row">
-    <div class="col">
-      <div class="game-card">
-        <p>Game: <%= @game.name %></p>
-        <p>Type: <%= @game.game_type %></p>
-        <p>Description: <%= @game.content %></p>
-        <p>Price: <%= @game.price %>€</p>
-        <p>@<%= @game.user.username %></p>
+<% if @query_type == "user" %>
+  <h1>Game Details</h1>
+  <%= link_to "Back to Games", games_path, class: "btn btn-primary py-2" %>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="game-card">
+          <p>Game: <%= @game.name %></p>
+          <p>Type: <%= @game.game_type %></p>
+          <p>Description: <%= @game.content %></p>
+          <p>Price: <%= @game.price %>€</p>
+          <p>@<%= @game.user.username %></p>
+        </div>
+        <%= link_to "Book this game", new_game_booking_path(@game), class: "btn btn-primary" %>
+        <%= link_to "Edit this game", edit_game_path(@game), class: "btn btn-primary" %>
       </div>
-      <%= link_to "Book this game", new_game_booking_path(@game), class: "btn btn-primary" %>
-      <%= link_to "Edit this game", edit_game_path(@game), class: "btn btn-primary" %>
     </div>
   </div>
-</div>
-<br>
-<div style="width: 100%; height: 600px;"
-  data-controller="map"
-  <% if @game_marker.present? %>
-    data-map-markers-value="<%= [@game_marker].to_json %>"
-  <% else %>
-    data-map-markers-value="[]"
-  <% end %>
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-</div>
+  <br>
+  <div style="width: 100%; height: 600px;"
+    data-controller="map"
+    <% if @game_marker.present? %>
+      data-map-markers-value="<%= [@game_marker].to_json %>"
+    <% else %>
+      data-map-markers-value="[]"
+    <% end %>
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+<% end %>
+
+<% if @query_type == "owner" %>
+  <h1>My Offer Details</h1>
+  <%= link_to "Back to My Offers", my_offers_games_path, class: "btn btn-primary py-2" %>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="game-card">
+          <p>Game: <%= @game.name %></p>
+          <p>Type: <%= @game.game_type %></p>
+          <p>Description: <%= @game.content %></p>
+          <p>Price: <%= @game.price %>€</p>
+          <p>@<%= @game.user.username %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

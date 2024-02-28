@@ -1,3 +1,4 @@
+
 <h1>List of Games</h1>
 <%= link_to "Back to home", root_path, class: "btn btn-primary py-2" %>
 <div class="container">
@@ -6,7 +7,7 @@
       <% unless @games.nil? %>
         <% @games.each do |game| %>
           <% if game.user_id != current_user.id %>
-            <%= link_to game_path(game), class:"text-decoration-none" do %>
+            <%= link_to game_path(game, query_type: "user"), class:"text-decoration-none" do %>
               <div class="game-card">
                 <p>Game: <%= game.name %></p>
                 <p>Type: <%= game.game_type %></p>

@@ -4,7 +4,7 @@
     <div class="col">
       <% unless @bookings.nil? %>
         <% @bookings.each do |booking| %>
-          <%= link_to booking_path(booking, query_type: "request"), class:"text-decoration-none" do %>
+          <%= link_to booking_path(booking, query_type: "user"), class:"text-decoration-none" do %>
             <div class="booking-card">
               <p>Game: <%= booking.game.name %> (category: "<%= booking.game.game_type %>")</p>
               <p>@<%= booking.game.user.username %>: <%= booking.game.content %></p>

@@ -1,4 +1,4 @@
-<% if @query_type == "request" %>
+<% if @query_type == "user" %>
   <h1>Pending Request Details</h1>
   <%= link_to "Back to My Pending Requests", pending_booking_bookings_path, class: "btn btn-primary py-2" %>
   <div class="container">
@@ -27,7 +27,7 @@
   </div>
 <% end %>
 
-<% if @query_type == "client" %>
+<% if @query_type == "owner" %>
   <h1>Pending Client Details</h1>
   <%= link_to "Back to My Pending Clients", pending_client_bookings_path, class: "btn btn-primary py-2" %>
   <div class="container">
