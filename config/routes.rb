@@ -16,6 +16,8 @@ Rails.application.routes.draw do
     end
     member do
       delete :cancel
+      delete :decline
+      patch :accept
     end
   end
 end
