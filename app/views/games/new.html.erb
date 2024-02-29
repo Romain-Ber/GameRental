@@ -7,7 +7,7 @@
       <%= form_with(model: @game, url: games_path) do |form| %>
         <div class="field">
           <%= form.label :name %>
-          <%= form.text_field :name %>
+          <%= form.text_field :name, placeholder: "Name of the game"%>
         </div>
         <div class="field">
           <%= form.label :game_type %>
@@ -15,13 +15,13 @@
         </div>
         <div class="field">
           <%= form.label :content %>
-          <%= form.text_area :content %>
+          <%= form.text_area :content, placeholder: "The subject of your message" %>
         </div>
         <div class="field">
           <%= form.label :price %>
-          <%= form.number_field :price %>
+          <%= form.number_field :price, placeholder: "Your price" %>
         </div>
-        <%= form.submit "Créer l'offre de jeu" %>
+        <%= form.submit "Create the game offer" %>
       <% end %>
     </div>
   </div>
