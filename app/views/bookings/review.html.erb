@@ -1,9 +1,15 @@
+<div class="container">
 <h1>Leave a Review</h1>
 <%= link_to "Back to my ongoing booking", booking_path(@booking, query_type: "user"), class:"btn btn-primary py-2" %>
-<%= simple_form_for(@booking, url: done_booking_path(@booking), method: :patch) do |f| %>
-  <%= f.input :review %>
-  <br>
-  <%= f.input :rating %>
-  <br>
-  <%= f.button :submit, class: "btn btn-primary py-2" %>
-<% end %>
+  <div class="row">
+    <div class="col">
+      <%= simple_form_for(@booking, url: done_booking_path(@booking), method: :patch) do |f| %>
+        <%= f.input :review %>
+        <br>
+        <%= f.input :rating %>
+        <br>
+        <%= f.button :submit, class: "btn btn-primary py-2" %>
+      <% end %>
+    </div>
+  </div>
+</div>

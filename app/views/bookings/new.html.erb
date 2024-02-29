@@ -1,6 +1,10 @@
 <div class="container">
   <h1>Create a booking</h1>
-  <%= render 'form', game: @game, booking: @booking %>
-  <br>
-  <%= link_to "Back to games", games_path, class: "btn btn-primary" %>
+  <div class="row">
+    <div class="col">
+      <%= render 'form', game: @game, booking: @booking %>
+      <br>
+      <%= link_to "Back to games", games_path, class: "btn btn-primary" %>
+    </div>
+  </div>
 </div>
