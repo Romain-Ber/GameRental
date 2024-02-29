@@ -35,7 +35,7 @@ class BookingsController < ApplicationController
     @booking.user = @user
     @booking.status = "pending"
     if @booking.save
-      redirect_to game_path(@game)
+      redirect_to booking_path(@booking, query_type: "user")
     else
       render 'new', status: :unprocessable_entity
     end
