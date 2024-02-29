@@ -1,8 +1,10 @@
 <%= render "pages/navbar"%>
 <div class="container">
-  <div class="container-game">
-    <h1>Create a Game</h1>
-    <%= link_to "Back to My Offers", my_offers_games_path, class: "btn btn-primary py-2" %>
+  <div class="form">
+    <div style="text-align: center;">
+      <h1>Create a Game</h1>
+      <%= link_to "Back to My Offers", my_offers_games_path, class: "btn btn-ghost" %>
+    </div>
     <div class="row">
       <div class="col">
         <%= form_with(model: @game, url: games_path) do |form| %>
@@ -11,11 +13,9 @@
             <%= form.text_field :name, placeholder: "Name of the game"%>
           </div>
           <div class="field">
-            <%= form.label :game_type %>
             <%= form.select :game_type, Game::GAME_TYPES %>
           </div>
           <div class="field">
-            <%= form.label :content %>
             <%= form.text_area :content, placeholder: "The subject of your message" %>
           </div>
           <div class="field">
