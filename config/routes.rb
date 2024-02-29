@@ -15,9 +15,11 @@ Rails.application.routes.draw do
       get :pending_client
     end
     member do
+      get :review
       delete :cancel
       delete :decline
       patch :accept
+      patch :done
     end
   end
 end

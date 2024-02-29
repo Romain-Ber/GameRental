@@ -1,12 +1,12 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: %i[ show cancel decline accept ]
+  before_action :set_booking, only: %i[ show cancel decline accept review done ]
   def index
     @bookings = Booking.all
   end
 
   def pending_booking
     @user = current_user
-    @bookings = Booking.where(user_id: @user.id, status: "pending")
+    @bookings = Booking.where(user_id: @user.id)
   end
 
   def pending_client
@@ -52,10 +52,22 @@ class BookingsController < ApplicationController
   end
 
   def accept
-    @booking.date_begin = Date.today
+    @booking.date_begin = DateTime.now
     @booking.status = "ongoing"
     @booking.save
     redirect_to pending_client_bookings_path, status: :see_other
+  end
+
+  def review
+  end
+
+  def done
+    @booking.rating = params[:booking][:rating]
+    @booking.review = params[:booking][:review]
+    @booking.date_end = DateTime.now
+    @booking.status = "done"
+    @booking.save
+    redirect_to pending_booking_bookings_path, status: :see_other
   end
 
   private
@@ -65,6 +77,6 @@ class BookingsController < ApplicationController
   end
 
   def params_booking
-    params.require(:booking).permit(:date_begin, :date_end, :rating, :review, :message, :game_id, :user_id, :status)
+    params.require(:booking).permit(:game_id, :user_id, :message, :status, :date_begin, :date_end, :rating, :review)
   end
 end
