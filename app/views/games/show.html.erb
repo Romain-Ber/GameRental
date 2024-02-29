@@ -2,23 +2,23 @@
 <% if @query_type == "user" %>
   <div class="container">
     <h1>Game Details</h1>
-    <%= link_to "Back to Games", games_path, class: "btn btn-primary py-2" %>
+    <%= link_to "Back to Games", games_path, class: "btn btn-ghost" %>
     <div class="row">
       <div class="col">
         <div class="game-card">
+        <% if @game.photos.any? %>
+            <% @game.photos.each do |photo| %>
+              <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+            <% end %>
+          <% end %>
+          <br>
           <p>Game: <%= @game.name %></p>
           <p>Type: <%= @game.game_type %></p>
           <p>Description: <%= @game.content %></p>
           <p>Price: <%= @game.price %>€</p>
           <p>@<%= @game.user.username %></p>
-          <br>
-          <% if @game.photos.any? %>
-            <% @game.photos.each do |photo| %>
-              <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-            <% end %>
-          <% end %>
         </div>
-        <%= link_to "Book this game", new_game_booking_path(@game), class: "btn btn-primary" %>
+        <%= link_to "Book this game", new_game_booking_path(@game), class: "btn btn-ghost" %>
       </div>
     </div>
     <div style="width: 100%; height: 600px;"
@@ -36,7 +36,7 @@
 <% if @query_type == "owner" %>
   <div class="container">
     <h1>My Offer Details</h1>
-    <%= link_to "Back to My Offers", my_offers_games_path, class: "btn btn-primary py-2" %>
+    <%= link_to "Back to My Offers", my_offers_games_path, class: "btn btn-ghost py-2" %>
     <div class="row">
       <div class="col">
         <div class="game-card">
@@ -52,8 +52,8 @@
             <% end %>
           <% end %>
         </div>
-        <%= link_to "Edit this offer", edit_game_path(@game), class: "btn btn-primary py-2" %>
-        <%= link_to "Remove", game_path(@game), data: {turbo_method: :delete, turbo_confirm: "Remove this game from my offers?"}, class: "btn btn-primary py-2" %>
+        <%= link_to "Edit this offer", edit_game_path(@game), class: "btn btn-ghost py-2" %>
+        <%= link_to "Remove", game_path(@game), data: {turbo_method: :delete, turbo_confirm: "Remove this game from my offers?"}, class: "btn btn-ghost py-2" %>
       </div>
     </div>
   </div>
