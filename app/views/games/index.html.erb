@@ -7,23 +7,24 @@
         <% @games.each do |game| %>
           <% if game.user_id != current_user.id %>
             <%= link_to game_path(game, query_type: "user"), class:"text-decoration-none" do %>
-              <div class="card-product">
-                <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-                  <div class="card-product-infos">
-                    <div>
-                      <div class="components-left">
-                        <h4><%= game.name %></h4>
-                        <p>Type: <%= game.game_type %></p>
-                      </div>
-                      <div class="italic-content">
-                        <p><%= game.content.slice(0,30) %>...</p>
-                      </div>
-                    </div>
-                    <div class="components-right">
-                      <p style="font-size: 20px;"><strong><%= game.price %>€</strong></p>
-                      <p>@<%= game.user.username %></p>
-                    </div>
+              <div class="game-card">
+                <div class="game-card-img">
+                  <% if game.photos.any? %>
+                    <%= cl_image_tag game.photos.first.key, height: 300, width: 400, crop: :fit %>
+                  <% end %>
+                </div>
+                <div class="game-card-infos">
+                  <div class="game-card-title">
+                    <h2><%= game.name %></h2>
+                    <p><%= game.game_type %></p>
                   </div>
+                  <div class="game-card-text">
+                    <p>Description: "<%= game.content %>"</p>
+                  </div>
+                  <div class="game-card-signature">
+                    <p><%= game.price %>€</p>
+                  </div>
+                </div>
               </div>
             <% end %>
           <% end %>

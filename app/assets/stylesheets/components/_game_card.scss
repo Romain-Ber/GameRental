@@ -1,69 +1,69 @@
-// .game-card {
-//   background-color: rgba($color: #cea86f, $alpha: 1.0);
-//   text-decoration: none;
-//   color: black;
-// }
-
-.card-product {
+.game-card {
+  text-decoration: none;
   overflow: hidden;
-  height: 120px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
-  align-items: center;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  position: relative;
+  border-radius: 4px;
+  margin-bottom: 8px;
 }
 
-.card-product img {
-  // padding: 10, 10;
-  height: 100%;
+.game-card-img {
+  height: 120px;
   width: 120px;
-  object-fit: cover;
-}
-
-.card-product .components-left {
-  h4 {
-    // padding-top: 20px;
-    display: flex;
-    justify-content: flex-start;
-  }
-
-  p {
-    display: flex;
-    justify-content: flex-start;
-  }
-}
-
-.card-product .components-right {
-  // position: absolute;
-  // bottom: 16px;
-  // right: 16px;
-  padding: 8px 0;
-
-  p {
-    margin: 0;
-  }
-}
-
-.italic-content {
-  font-style: italic;
-  color: rgb(82, 82, 82);
-}
-
-.card-product p {
-  font-size: 12px;
-  line-height: 1.4;
-  opacity: .7;
-}
-
-.card-product .card-product-infos {
-  flex: 1;
-  padding: 0 16px;
-  height: 100%;
+  padding: 4px;
+  box-sizing: border-box; /* Include padding in width */
   display: flex;
-  align-items: flex-end;
+  align-items: center; /* Center image vertically */
+}
+
+.game-card-img img {
+  height: 100%; /* Ensure all images have the same height */
+  width: 120px; /* Maintain aspect ratio */
+}
+
+.game-card-infos {
+  padding: 8px;
+  flex-grow: 1; /* Fill remaining space */
+  display: flex;
+  flex-direction: column;
   justify-content: space-between;
+}
+
+.game-card-title {
+  display: flex;
+  justify-content: space-between; /* Maximum space between items */
+  align-items: center; /* Align items to the center */
+  flex-wrap: wrap; /* Allow items to wrap */
+  margin-bottom: 4px; /* Add space between title and text */
+}
+
+.game-card-title h2 {
+  flex: 1; /* Take as much space as needed */
+  font-size: 16px;
+  font-weight: bold;
   color: black;
+  margin: 0; /* Reset margin */
+}
+
+.game-card-title p {
+  font-size: 12px;
+  opacity: .7;
+  color: black;
+  margin: 0; /* Reset margin */
+}
+
+.game-card-text p {
+  font-size: 12px;
+  opacity: .7;
+  color: black;
+  margin: 0; /* Reset margin */
+}
+
+.game-card-signature p {
+  font-size: 12px;
+  opacity: .7;
+  color: black;
+  margin: 0; /* Reset margin */
+  text-align: right; /* Align to the right */
 }
