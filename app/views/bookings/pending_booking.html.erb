@@ -7,11 +7,9 @@
         <% @bookings.each do |booking| %>
           <%= link_to booking_path(booking, query_type: "user"), class:"text-decoration-none" do %>
             <div class="booking-card">
-              <p>Game: <%= booking.game.name %> (category: "<%= booking.game.game_type %>")</p>
-              <p>@<%= booking.game.user.username %>: <%= booking.game.content %></p>
+              <p>Game: <%= booking.game.name %></p>
+              <p>Category: <%= booking.game.game_type %></p>
               <p>Price: <%= booking.game.price %>€</p>
-              <br>
-              <p>@<%= booking.user.username %>, <%= booking.created_at %></p>
               <p>Message: <%= booking.message %></p>
               <p>Status: <%= booking.status %></p>
             </div>

@@ -1,5 +1,18 @@
 .booking-card {
-  background-color: rgba($color: #cea86f, $alpha: 1.0);
-  text-decoration: none;
-  color: black;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+
+  p {
+    margin: 0;
+    line-height: 1.4;
+    font-size: 16px;
+    color: #333;
+  }
+  p:first-child {
+    font-weight: bold;
+    font-size: 18px;
+  }
 }
