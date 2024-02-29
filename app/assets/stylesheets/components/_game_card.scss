@@ -1,5 +1,69 @@
-.game-card {
-  background-color: rgba($color: #cea86f, $alpha: 1.0);
-  text-decoration: none;
+// .game-card {
+//   background-color: rgba($color: #cea86f, $alpha: 1.0);
+//   text-decoration: none;
+//   color: black;
+// }
+
+.card-product {
+  overflow: hidden;
+  height: 120px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.card-product img {
+  // padding: 10, 10;
+  height: 100%;
+  width: 120px;
+  object-fit: cover;
+}
+
+.card-product .components-left {
+  h4 {
+    // padding-top: 20px;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  p {
+    display: flex;
+    justify-content: flex-start;
+  }
+}
+
+.card-product .components-right {
+  // position: absolute;
+  // bottom: 16px;
+  // right: 16px;
+  padding: 8px 0;
+
+  p {
+    margin: 0;
+  }
+}
+
+.italic-content {
+  font-style: italic;
+  color: rgb(82, 82, 82);
+}
+
+.card-product p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+}
+
+.card-product .card-product-infos {
+  flex: 1;
+  padding: 0 16px;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
   color: black;
 }
