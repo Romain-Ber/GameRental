@@ -3,13 +3,13 @@
   <h1>Useless index</h1>
   <div class="row">
     <div class="col">
-      <% unless @bookings.nil? %>
-        <% @bookings.each do |booking| %>
-          <div>
-            <%= booking.id if booking.user_id = current_user %>
-          </div>
+        <% unless @bookings.nil? %>
+          <% @bookings.each do |booking| %>
+            <div>
+              <%= booking.id if booking.user_id = current_user %>
+            </div>
+          <% end %>
         <% end %>
-      <% end %>
     </div>
   </div>
 </div>

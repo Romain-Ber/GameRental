@@ -19,6 +19,9 @@
             <%= form.text_area :content, placeholder: "The subject of your message" %>
           </div>
           <div class="field">
+            <%= form.file_field :photos, multiple: true %>
+          </div>
+          <div class="field">
             <%= form.label :price %>
             <%= form.number_field :price, placeholder: "Your price" %>
           </div>

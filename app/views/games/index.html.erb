@@ -8,12 +8,23 @@
         <% @games.each do |game| %>
           <% if game.user_id != current_user.id %>
             <%= link_to game_path(game, query_type: "user"), class:"text-decoration-none" do %>
-              <div class="game-card">
-                <p>Game: <%= game.name %></p>
-                <p>Type: <%= game.game_type %></p>
-                <p>Description: <%= game.content %></p>
-                <p>Price: <%= game.price %>€</p>
-                <p>@<%= game.user.username %></p>
+              <div class="card-product">
+                <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+                  <div class="card-product-infos">
+                    <div>
+                      <div class="components-left">
+                        <h4><%= game.name %></h4>
+                        <p>Type: <%= game.game_type %></p>
+                      </div>
+                      <div class="italic-content">
+                        <p><%= game.content.slice(0,30) %>...</p>
+                      </div>
+                    </div>
+                    <div class="components-right">
+                      <p style="font-size: 20px;"><strong><%= game.price %>€</strong></p>
+                      <p>@<%= game.user.username %></p>
+                    </div>
+                  </div>
               </div>
             <% end %>
           <% end %>

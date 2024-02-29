@@ -11,6 +11,12 @@
           <p>Description: <%= @game.content %></p>
           <p>Price: <%= @game.price %>€</p>
           <p>@<%= @game.user.username %></p>
+          <br>
+          <% if @game.photos.any? %>
+            <% @game.photos.each do |photo| %>
+              <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+            <% end %>
+          <% end %>
         </div>
         <%= link_to "Book this game", new_game_booking_path(@game), class: "btn btn-primary" %>
       </div>
@@ -39,6 +45,12 @@
           <p>Description: <%= @game.content %></p>
           <p>Price: <%= @game.price %>€</p>
           <p>@<%= @game.user.username %></p>
+          <br>
+          <% if @game.photos.any? %>
+            <% @game.photos.each do |photo| %>
+              <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+            <% end %>
+          <% end %>
         </div>
         <%= link_to "Edit this offer", edit_game_path(@game), class: "btn btn-primary py-2" %>
         <%= link_to "Remove", game_path(@game), data: {turbo_method: :delete, turbo_confirm: "Remove this game from my offers?"}, class: "btn btn-primary py-2" %>
