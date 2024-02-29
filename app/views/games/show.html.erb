@@ -39,12 +39,11 @@
     <%= link_to "Back to My Offers", my_offers_games_path, class: "btn btn-ghost py-2" %>
     <div class="row">
       <div class="col">
-        <div class="game-card">
+        <div class="booking-card">
           <p>Game: <%= @game.name %></p>
           <p>Type: <%= @game.game_type %></p>
           <p>Description: <%= @game.content %></p>
           <p>Price: <%= @game.price %>€</p>
-          <p>@<%= @game.user.username %></p>
           <br>
           <% if @game.photos.any? %>
             <% @game.photos.each do |photo| %>
