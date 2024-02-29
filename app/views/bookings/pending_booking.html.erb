@@ -8,10 +8,8 @@
           <%= link_to booking_path(booking, query_type: "user"), class:"text-decoration-none" do %>
             <div class="booking-card">
               <p>Game: <%= booking.game.name %></p>
-              <p>Category: <%= booking.game.game_type %></p>
-              <p>Price: <%= booking.game.price %>€</p>
-              <p>Message: <%= booking.message %></p>
               <p>Status: <%= booking.status %></p>
+              <p>Price: <%= booking.game.price %>€</p>
             </div>
           <% end %>
         <% end %>
