@@ -1,11 +1,21 @@
 .game-card {
   text-decoration: none;
   overflow: hidden;
-  background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   border-radius: 4px;
   margin-bottom: 8px;
+  background: linear-gradient(135deg, #ffffff, #f0f8ff); /* Adjust gradient angle and colors as needed */
+  animation: gradientMovement 10s linear infinite; /* Adjust animation duration and timing function as needed */
+}
+
+@keyframes gradientMovement {
+  0% {
+    background-position: 0% 50%; /* Start position */
+  }
+  100% {
+    background-position: 100% 50%; /* End position */
+  }
 }
 
 .game-card-img {
