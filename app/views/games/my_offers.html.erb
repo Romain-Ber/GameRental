@@ -1,19 +1,18 @@
 <%= render "pages/navbar"%>
 <div class="container">
   <h1>My Offers</h1>
-  <%= link_to "Create an offer", new_game_path, class: "btn btn-primary py-2" %>
+  <%= link_to "Create an offer", new_game_path, class: "btn btn-ghost" %>
   <div class="row">
     <div class="col">
       <% unless @games.nil? %>
         <% @games.each do |game| %>
           <% if game.user_id == current_user.id %>
             <%= link_to game_path(game, query_type: "owner"), class:"text-decoration-none" do %>
-              <div class="game-card">
+              <div class="booking-card">
                 <p>Game: <%= game.name %></p>
                 <p>Type: <%= game.game_type %></p>
                 <p>Description: <%= game.content %></p>
                 <p>Price: <%= game.price %>€</p>
-                <p>@<%= game.user.username %></p>
               </div>
             <% end %>
           <% end %>
