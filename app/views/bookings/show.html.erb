@@ -43,6 +43,8 @@
           <p>Game: <%= @booking.game.name %> (category: "<%= @booking.game.game_type %>")</p>
           <p>Price: <%= @booking.game.price %>€</p>
         </div>
+        <%= link_to "Accept", accept_booking_path(@booking), data: {turbo_method: :patch, turbo_confirm: "Accept this booking request?"}, class: "btn btn-primary py-2" %>
+        <%= link_to "Decline", decline_booking_path(@booking), data: {turbo_method: :delete, turbo_confirm: "Decline this booking request?"}, class: "btn btn-primary py-2" %>
       </div>
     </div>
   </div>

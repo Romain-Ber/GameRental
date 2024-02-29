@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: %i[ show cancel ]
+  before_action :set_booking, only: %i[ show cancel decline accept ]
   def index
     @bookings = Booking.all
   end
@@ -33,7 +33,6 @@ class BookingsController < ApplicationController
     @booking = Booking.new(params_booking)
     @booking.game = @game
     @booking.user = @user
-    @booking.date_begin = Date.today
     @booking.status = "pending"
     if @booking.save
       redirect_to game_path(@game)
@@ -45,6 +44,18 @@ class BookingsController < ApplicationController
   def cancel
     @booking.destroy
     redirect_to pending_booking_bookings_path, status: :see_other
+  end
+
+  def decline
+    @booking.destroy
+    redirect_to pending_client_bookings_path, status: :see_other
+  end
+
+  def accept
+    @booking.date_begin = Date.today
+    @booking.status = "ongoing"
+    @booking.save
+    redirect_to pending_client_bookings_path, status: :see_other
   end
 
   private
