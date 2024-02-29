@@ -1,21 +1,15 @@
 <%= render "navbar"%>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://i.imgur.com/oQ0lPZO.png);">
+  <div class="container">
+    <h1><strong>Game</strong>Rental</h1>
+    <p>Earn money lending games,</p>
+    <p>Try out games for cheap!</p>
+  </div>
+</div>
 <div class="container">
-  <h1>Pages#home</h1>
-  <% if current_user != nil %>
-    <p>Logged as: <%= current_user.username %></p>
-  <% end %>
-  <% if user_signed_in? %>
-    <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "nav-link" %>
-  <% else %>
-    <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-  <% end %>
   <div class="row">
     <div class="col">
-      <%= link_to "Games List", games_path, class: "btn btn-primary py-2" %>
-      <%= link_to "My Pending Requests", pending_booking_bookings_path, class: "btn btn-primary py-2" %>
-      <%= link_to "My Pending Clients", pending_client_bookings_path, class: "btn btn-primary py-2" %>
-      <%= link_to "My Offers", my_offers_games_path, class: "btn btn-primary py-2" %>
-      <%= link_to "My Wishlist", wishlists_path, class: "btn btn-primary py-2" %>
+
     </div>
   </div>
 </div>
