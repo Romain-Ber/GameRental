@@ -1,8 +1,10 @@
 <%= render "pages/navbar"%>
 <div class="container">
   <div class="form">
-    <h1>Edit my offer</h1>
-    <%= link_to "Back to my offer details", game_path(@game, query_type: "owner"), class:"btn btn-primary py-2" %>
+    <div style="text-align: center;">
+      <h1>Edit my offer</h1>
+      <%= link_to "Back to my offer details", game_path(@game, query_type: "owner"), class:"btn btn-ghost" %>
+    </div>
     <div class="row">
       <div class="col">
         <%= form_with(model: @game, url: game_path(@game), method: :patch) do |form| %>
@@ -21,8 +23,9 @@
           <div class="field">
             <%= form.label :price %>
             <%= form.number_field :price %>
+          <div style="text-align: center;">
+            <%= form.submit "Modifier l'offre de jeu" %>
           </div>
-          <%= form.submit "Modifier l'offre de jeu" %>
         <% end %>
       </div>
     </div>
