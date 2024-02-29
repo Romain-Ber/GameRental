@@ -22,4 +22,5 @@ Rails.application.routes.draw do
       patch :done
     end
   end
+  resources :wishlists, only: [:index]
 end

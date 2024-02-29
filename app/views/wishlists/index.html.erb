@@ -1,0 +1,21 @@
+<h1>My Wishlisted Games</h1>
+<%= link_to "Back to home", root_path, class: "btn btn-primary py-2" %>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <% unless @wishlists.nil? %>
+        <% @wishlists.each do |wishlist| %>
+          <%= link_to game_path(wishlist.game, query_type: "user"), class:"text-decoration-none" do %>
+            <div class="game-card">
+              <p>Game: <%= wishlist.game.name %></p>
+              <p>Type: <%= wishlist.game.game_type %></p>
+              <p>Description: <%= wishlist.game.content %></p>
+              <p>Price: <%= wishlist.game.price %>€</p>
+              <p>@<%= wishlist.game.user.username %></p>
+            </div>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
