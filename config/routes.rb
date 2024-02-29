@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     collection do
       get :index
       get :my_offers
+      get :new
     end
     resources :bookings, only: [:new, :create]
   end

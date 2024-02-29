@@ -31,7 +31,7 @@ class GamesController < ApplicationController
     @game = Game.new(params_game)
     @game.user = current_user
     if @game.save
-      redirect_to game_path(@game), notice: "L'offre de jeu a été créée avec succès."
+      redirect_to my_offers_games_path, notice: "L'offre de jeu a été créée avec succès."
     else
       render 'new', status: :unprocessable_entity
     end
