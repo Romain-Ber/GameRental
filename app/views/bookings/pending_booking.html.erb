@@ -6,13 +6,19 @@
       <% unless @bookings.nil? %>
         <% @bookings.each do |booking| %>
           <%= link_to booking_path(booking, query_type: "user"), class:"text-decoration-none" do %>
-            <div class="booking-card">
-              <p>Game: <%= booking.game.name %></p>
-              <p>Status: <%= booking.status %></p>
-              <div class="game-card-signature">
-                <p style="text-align:center">Price: <%= booking.game.price %>€</p>
+            <%# <div class="booking-card"> %>
+              <div class="game-card">
+                <div class="game-card-infos">
+                  <div class="game-card-title">
+                    <p>Game: <%= booking.game.name %></p>
+                    <p>Status: <%= booking.status %></p>
+                  </div>
+                  <div class="game-card-signature">
+                    <p style="text-align:right">Price: <%= booking.game.price %>€</p>
+                  </div>
+                </div>
               </div>
-            </div>
+            <%# </div> %>
           <% end %>
         <% end %>
       <% end %>
