@@ -6,13 +6,32 @@
       <% unless @bookings.nil? %>
         <% @bookings.each do |booking| %>
           <%= link_to booking_path(booking, query_type: "user"), class:"text-decoration-none" do %>
-            <div class="booking-card">
-              <p>Game: <%= booking.game.name %></p>
-              <p>Status: <%= booking.status %></p>
-              <div class="game-card-signature">
-                <p style="text-align:center">Price: <%= booking.game.price %>€</p>
+            <%# <div class="booking-card"> %>
+              <div class="game-card">
+                <div class="game-card-img">
+                  <% if booking.game.photos.any? %>
+                    <%= cl_image_tag booking.game.photos.first.key, height: 300, width: 400, crop: :fit %>
+                  <% end %>
+                </div>
+                <div class="game-card-infos">
+                  <div class="game-card-title">
+                    <h2>Game: <%= booking.game.name %></h2>
+                    <p>Status: <%= booking.status %></p>
+                    <% if booking.status == "ongoing" || booking.status == "done" %>
+                      <p style="text-align:right">Date d'emprunt: <br> <%= booking.date_begin.strftime("%Y-%m-%d") %></p>
+                    <% end %>
+                    <% if booking.status == "done" %>
+                      <p>date de retour: <%= booking.date_end.strftime("%Y-%m-%d") %></p>
+                      <p>Review: <%= booking.review %></p>
+                      <p>Rating: <%= booking.rating %></p>
+                    <% end %>
+                  </div>
+                  <div class="game-card-signature">
+                    <p style="text-align:right">Price: <%= booking.game.price %>€</p>
+                  </div>
+                </div>
               </div>
-            </div>
+            <%# </div> %>
           <% end %>
         <% end %>
       <% end %>
