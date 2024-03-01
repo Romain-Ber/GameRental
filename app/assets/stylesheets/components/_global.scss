@@ -1,9 +1,10 @@
 .container {
-  background: linear-gradient(-45deg, #81f055, #ebe957, #eb8e50, #f34d4d);
+  background: linear-gradient(-45deg, #caabe7, #aca8e0, #a1b4df, #a7cedd);
   background-size: 400% 400%;
   animation: gradient 5s ease infinite;
   min-height: 100vh;
   .animate-charcter {
+    text-align: center;
     text-transform: uppercase;
     text-justify: center;
     background-image: linear-gradient(
