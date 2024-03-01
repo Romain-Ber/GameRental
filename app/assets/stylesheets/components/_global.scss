@@ -2,7 +2,7 @@
   background: linear-gradient(-45deg, #81f055, #ebe957, #eb8e50, #f34d4d);
   background-size: 400% 400%;
   animation: gradient 5s ease infinite;
-  height: 100vh;
+  min-height: 100vh;
   .animate-charcter {
     text-transform: uppercase;
     text-justify: center;
