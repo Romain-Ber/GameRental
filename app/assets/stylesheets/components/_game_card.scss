@@ -1,11 +1,21 @@
 .heart-icon {
-  top: 0px;
-  left: 8px;
+  top: 4px;
+  left: 4px;
+  padding: 0px 8px;
+  background-color: rgba(255,255,255,0.75);
+  border-radius: 50%;
   font-size: 24px;
   text-decoration: none;
-  color: rgba(235, 134, 196, 0.75);
+  color: rgba(235, 134, 196, 0.5);
   z-index: 1; /* Ensure heart icon is above the image */
   position: absolute; /* Position the heart icon */
+}
+
+.wishlisted {
+  color: rgb(241, 35, 86);
+  padding: 0px 8px;
+  background-color: rgba(255,255,255,0.75);
+  border-radius: 50%;
 }
 
 .game-card {
