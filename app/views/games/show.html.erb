@@ -8,10 +8,10 @@
         <div class="game-card">
         <div class="game-card-img">
           <% if @game.photos.any? %>
-              <% @game.photos.each do |photo| %>
-                <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-              <% end %>
+            <% @game.photos.each do |photo| %>
+              <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
             <% end %>
+          <% end %>
           </div>
         <div class="game-card-detail">
           <br>
