@@ -33,7 +33,7 @@ knnllGame = Game.create!(name: "Animal Crossing account", game_type: "Digital Ga
 knnllGame.photos.attach(io: file, filename: 'animal_crossing.jpg', content_type: 'image/jpg')
 knnllGame.save!
 file = URI.open('https://res.cloudinary.com/deetrshgq/image/upload/v1709220539/oc5ik8jh6kc4e2cnn59p.jpg')
-knnllGame2 = Game.create!(name: "Animal Crossing account2", game_type: "Digital Game", content: "my world2", price: 16, user: knnll)
+knnllGame2 = Game.create!(name: "Animal Crossing account2", game_type: "Digital Game", content: "j'aime les animaux", price: 16, user: florian)
 knnllGame2.photos.attach(io: file, filename: 'animal_crossing.jpg', content_type: 'image/jpg')
 knnllGame2.save!
 file = URI.open('https://res.cloudinary.com/deetrshgq/image/upload/v1709220821/koi4xxz4bufhckkdywyy.jpg')
@@ -49,7 +49,7 @@ marineGame = Game.create!(name: "Monopoly", game_type: "Board Game", content: "D
 marineGame.photos.attach(io: file, filename: 'monopoly.jpg', content_type: 'image/jpg')
 marineGame.save!
 file = URI.open('https://res.cloudinary.com/deetrshgq/image/upload/v1709220905/ukotatd4p9a5s6knrn6e.jpg')
-marineGame2 = Game.create!(name: "Monopoly2", game_type: "Board Game", content: "2Destructeur de relations", price: 6, user: marine)
+marineGame2 = Game.create!(name: "Monopoly2", game_type: "Board Game", content: "2Destructeur de relations", price: 6, user: perrine)
 marineGame2.photos.attach(io: file, filename: 'monopoly.jpg', content_type: 'image/jpg')
 marineGame2.save!
 file = URI.open('https://res.cloudinary.com/deetrshgq/image/upload/v1709220774/byr6rbg43e9s2fcssx8k.jpg')
@@ -72,8 +72,8 @@ mathieuGame2.save!
 puts "seeded #{Game.count} games"
 
 Booking.create!(game: florianGame, user: romain, message: "kikoo", status: "ongoing")
-Booking.create!(game: florianGame2, user: knnll, message: "kikoo", status: "pending")
-Booking.create!(game: romainGame, user: knnll, message: "kikoo", status: "ongoing")
+Booking.create!(game: florianGame2, user: knnll, message: "Du poker pourquoi pas", status: "pending")
+Booking.create!(game: romainGame, user: mathieu, message: "kikoo", status: "ongoing")
 Booking.create!(game: romainGame2, user: cedric, message: "kikoo", status: "pending")
 Booking.create!(game: knnllGame, user: cedric, message: "kikoo", status: "ongoing")
 Booking.create!(game: knnllGame2, user: marine, message: "kikoo", status: "pending")
@@ -81,7 +81,7 @@ Booking.create!(game: cedricGame, user: marine, message: "kikoo", status: "ongoi
 Booking.create!(game: cedricGame2, user: perrine, message: "kikoo", status: "pending")
 Booking.create!(game: marineGame, user: perrine, message: "kikoo", status: "ongoing")
 Booking.create!(game: marineGame2, user: mathieu, message: "kikoo", status: "pending")
-Booking.create!(game: perrineGame, user: mathieu, message: "kikoo", status: "ongoing")
+Booking.create!(game: perrineGame, user: knnll, message: "Quand il fera beau je veux bien ton ballon", status: "ongoing")
 Booking.create!(game: perrineGame2, user: florian, message: "kikoo", status: "pending")
 Booking.create!(game: mathieuGame, user: florian, message: "kikoo", status: "ongoing")
 Booking.create!(game: mathieuGame2, user: romain, message: "kikoo", status: "pending")

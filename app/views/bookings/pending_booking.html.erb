@@ -16,11 +16,14 @@
                 <div class="game-card-infos">
                   <div class="game-card-title">
                     <h2>Game: <%= booking.game.name %></h2>
-                    <p>Status: <%= booking.status %></p>
-                    <% if booking.status == "ongoing" || booking.status == "done" %>
+                    <% if booking.status == "pending" %>
+                      <p>Status: "Demande en attente"</p>
+                    <% elsif booking.status == "ongoing" %>
+                      <p>Status: "Jeu en cours d'emprunt"</p>
                       <p style="text-align:right">Date d'emprunt: <br> <%= booking.date_begin.strftime("%Y-%m-%d") %></p>
-                    <% end %>
-                    <% if booking.status == "done" %>
+                    <% elsif booking.status == "done" %>
+                      <p>Status: "Booking terminé"</p>
+                      <p style="text-align:right">Date d'emprunt: <br> <%= booking.date_begin.strftime("%Y-%m-%d") %></p>
                       <p>date de retour: <%= booking.date_end.strftime("%Y-%m-%d") %></p>
                       <p>Review: <%= booking.review %></p>
                       <p>Rating: <%= booking.rating %></p>
