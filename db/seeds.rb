@@ -33,7 +33,7 @@ knnllGame = Game.create!(name: "Animal Crossing account", game_type: "Digital Ga
 knnllGame.photos.attach(io: file, filename: 'animal_crossing.jpg', content_type: 'image/jpg')
 knnllGame.save!
 file = URI.open('https://res.cloudinary.com/deetrshgq/image/upload/v1709220539/oc5ik8jh6kc4e2cnn59p.jpg')
-knnllGame2 = Game.create!(name: "Animal Crossing account2", game_type: "Digital Game", content: "my world2", price: 16, user: knnll)
+knnllGame2 = Game.create!(name: "Animal Crossing account2", game_type: "Digital Game", content: "j'aime les animaux", price: 16, user: florian)
 knnllGame2.photos.attach(io: file, filename: 'animal_crossing.jpg', content_type: 'image/jpg')
 knnllGame2.save!
 file = URI.open('https://res.cloudinary.com/deetrshgq/image/upload/v1709220821/koi4xxz4bufhckkdywyy.jpg')
