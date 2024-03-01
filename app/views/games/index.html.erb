@@ -9,6 +9,9 @@
             <%= link_to game_path(game, query_type: "user"), class:"text-decoration-none" do %>
               <div class="game-card">
                 <div class="game-card-img">
+                  <div class="heart-icon">
+                    <i class="fa-solid fa-heart"></i>
+                  </div>
                   <% if game.photos.any? %>
                     <%= cl_image_tag game.photos.first.key, height: 300, width: 400, crop: :fit %>
                   <% end %>

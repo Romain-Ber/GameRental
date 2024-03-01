@@ -6,17 +6,20 @@
     <div class="row">
       <div class="col">
         <div class="game-card">
-        <% if @game.photos.any? %>
-            <% @game.photos.each do |photo| %>
-              <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+          <div class="game-card-img">
+            <% if @game.photos.any? %>
+              <% @game.photos.each do |photo| %>
+                <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+              <% end %>
             <% end %>
-          <% end %>
-          <br>
-          <p>Game: <%= @game.name %></p>
-          <p>Type: <%= @game.game_type %></p>
-          <p>Description: <%= @game.content %></p>
-          <p>Price: <%= @game.price %>€</p>
-          <p>@<%= @game.user.username %></p>
+          </div>
+          <div class="game-card-infos">
+            <p>Game: <%= @game.name %></p>
+            <p>Type: <%= @game.game_type %></p>
+            <p>Description: <%= @game.content %></p>
+            <p>Price: <%= @game.price %>€</p>
+            <p>@<%= @game.user.username %></p>
+          </div>
         </div>
         <%= link_to "Book this game", new_game_booking_path(@game), class: "btn btn-ghost" %>
       </div>
