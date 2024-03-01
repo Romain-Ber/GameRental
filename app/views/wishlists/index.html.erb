@@ -1,17 +1,34 @@
 <%= render "pages/navbar"%>
 <div class="container">
-  <h1>My Wishlisted Games</h1>
+  <h1 class="animate-charcter">My Wishlisted Games</h1>
   <div class="row">
     <div class="col">
       <% unless @wishlists.nil? %>
         <% @wishlists.each do |wishlist| %>
-          <%= link_to game_path(wishlist.game, query_type: "user"), class:"text-decoration-none" do %>
+          <% if wishlist.user_id == current_user.id && game_in_wishlist?(wishlist.game) %>
             <div class="game-card">
-              <p>Game: <%= wishlist.game.name %></p>
-              <p>Type: <%= wishlist.game.game_type %></p>
-              <p>Description: <%= wishlist.game.content %></p>
-              <p>Price: <%= wishlist.game.price %>€</p>
-              <p>@<%= wishlist.game.user.username %></p>
+              <div class="game-card-img">
+                <div class="heart-icon <%= 'wishlisted' if game_in_wishlist?(wishlist.game) %>" data-controller="wish">
+                  <i class="fa-solid fa-heart" data-action="click->wish#toggleHeart" data-wish-target="heart" data-game-id="<%= wishlist.game.id %>"></i>
+                </div>
+                <% if wishlist.game.photos.any? %>
+                  <%= cl_image_tag wishlist.game.photos.first.key, height: 300, width: 400, crop: :fit %>
+                <% end %>
+              </div>
+              <%= link_to game_path(wishlist.game, query_type: "user"), class:"text-decoration-none" do %>
+                <div class="game-card-infos">
+                  <div class="game-card-title">
+                    <h2><%= wishlist.game.name %></h2>
+                    <p><%= wishlist.game.game_type %></p>
+                  </div>
+                  <div class="game-card-text">
+                    <p>Description: "<%= wishlist.game.content %>"</p>
+                  </div>
+                  <div class="game-card-signature">
+                    <p><%= wishlist.game.price %>€</p>
+                  </div>
+                </div>
+              <% end %>
             </div>
           <% end %>
         <% end %>
