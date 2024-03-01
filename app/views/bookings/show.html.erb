@@ -1,7 +1,7 @@
 <%= render "pages/navbar"%>
 <% if @query_type == "user" %>
   <div class="container">
-    <h1>Pending Request Details</h1>
+    <h1 class="animate-charcter">Pending Request Details</h1>
     <%= link_to "Back to My Pending Requests", pending_booking_bookings_path, class: "btn btn-ghost" %>
     <div class="row">
       <div class="column">
@@ -35,7 +35,7 @@
 
 <% if @query_type == "owner" %>
   <div class="container">
-    <h1>Pending Client Details</h1>
+    <h1 class="animate-charcter">Pending Client Details</h1>
     <%= link_to "Back to My Pending Clients", pending_client_bookings_path, class: "btn btn-ghost" %>
     <div class="row">
       <div class="column">
