@@ -1,32 +1,34 @@
 <%= render "pages/navbar"%>
 <div class="container">
-  <div class="form">
-    <div style="text-align: center;">
-      <h1>Edit my offer</h1>
-      <%= link_to "Back to my offer details", game_path(@game, query_type: "owner"), class:"btn btn-ghost" %>
-    </div>
-    <div class="row">
-      <div class="col">
-        <%= form_with(model: @game, url: game_path(@game), method: :patch) do |form| %>
-          <div class="field">
-            <%= form.label :name %>
-            <%= form.text_field :name %>
-          </div>
-          <div class="field">
-            <%= form.label :game_type %>
-            <%= form.select :game_type, Game::GAME_TYPES %>
-          </div>
-          <div class="field">
-            <%= form.label :content %>
-            <%= form.text_area :content %>
-          </div>
-          <div class="field">
-            <%= form.label :price %>
-            <%= form.number_field :price %>
-          <div style="text-align: center;">
-            <%= form.submit "Modifier l'offre de jeu" %>
-          </div>
-        <% end %>
+  <div class="container-spacer"></div>
+    <div class="form">
+      <div style="text-align: center;">
+        <h1>Edit my offer</h1>
+        <%= link_to "Back to my offer details", game_path(@game, query_type: "owner"), class:"btn btn-ghost" %>
+      </div>
+      <div class="row">
+        <div class="col">
+          <%= form_with(model: @game, url: game_path(@game), method: :patch) do |form| %>
+            <div class="field">
+              <%= form.label :name %>
+              <%= form.text_field :name %>
+            </div>
+            <div class="field">
+              <%= form.label :game_type %>
+              <%= form.select :game_type, Game::GAME_TYPES %>
+            </div>
+            <div class="field">
+              <%= form.label :content %>
+              <%= form.text_area :content %>
+            </div>
+            <div class="field">
+              <%= form.label :price %>
+              <%= form.number_field :price %>
+            <div style="text-align: center;">
+              <%= form.submit "Modifier l'offre de jeu" %>
+            </div>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
