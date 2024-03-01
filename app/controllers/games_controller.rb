@@ -42,7 +42,7 @@ class GamesController < ApplicationController
 
   def update
     if @game.update(params_game)
-      redirect_to game_path(@game), notice: "L'offre de jeu a été mise à jour avec succès."
+      redirect_to my_offers_games_path, notice: "L'offre de jeu a été mise à jour avec succès."
     else
       render 'edit', status: :unprocessable_entity
     end
