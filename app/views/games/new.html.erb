@@ -1,34 +1,36 @@
 <%= render "pages/navbar"%>
-<div class="container">
-  <div class="form">
-    <div style="text-align: center;">
-      <h1>Create a Game</h1>
-      <%= link_to "Back to My Offers", my_offers_games_path, class: "btn btn-ghost" %>
-    </div>
-    <div class="row">
-      <div class="col">
-        <%= form_with(model: @game, url: games_path) do |form| %>
-          <div class="field">
-            <%= form.label :name %>
-            <p>Game name: <%= form.text_field :name, placeholder: "Name of the game"%></p>
-          </div>
-          <div class="field">
-            <p>Game type: <%= form.select :game_type, Game::GAME_TYPES %></p>
-          </div>
-          <div class="field">
-            <%= form.text_area :content, placeholder: "The subject of your message" %>
-          </div>
-          <div class="field">
-            <p>Attach pictures: <%= form.file_field :photos, multiple: true %></p>
-          </div>
-          <br>
-          <div class="field">
-            <%= form.label :price %>
-            <%= form.number_field :price, placeholder: "Your price" %>
-          <div style="text-align: center;">
-            <%= form.submit "Create the game offer" %>
-          </div>
-        <% end %>
+  <div class="container">
+    <div class="container-spacer"></div>
+    <div class="form">
+      <div style="text-align: center;">
+        <h1>Create a Game</h1>
+        <%= link_to "Back to My Offers", my_offers_games_path, class: "btn btn-ghost" %>
+      </div>
+      <div class="row">
+        <div class="col">
+          <%= form_with(model: @game, url: games_path) do |form| %>
+            <div class="field">
+              <%= form.label :name %>
+              <p>Game name: <%= form.text_field :name, placeholder: "Name of the game"%></p>
+            </div>
+            <div class="field">
+              <p>Game type: <%= form.select :game_type, Game::GAME_TYPES %></p>
+            </div>
+            <div class="field">
+              <%= form.text_area :content, placeholder: "The subject of your message" %>
+            </div>
+            <div class="field">
+              <p>Attach pictures: <%= form.file_field :photos, multiple: true %></p>
+            </div>
+            <br>
+            <div class="field">
+              <%= form.label :price %>
+              <%= form.number_field :price, placeholder: "Your price" %>
+            <div style="text-align: center;">
+              <%= form.submit "Create the game offer" %>
+            </div>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
