@@ -1,8 +1,13 @@
 .banner {
+  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://res.cloudinary.com/deetrshgq/image/upload/v1709223601/development/hltc8x48so33vig92nn6wk1cmhh7.png');
   background-size: cover auto;
   background-position: center;
   background-repeat: no-repeat;
   padding: 120px 0;
+}
+
+.container .banner {
+
 }
 
 .banner h1 {
@@ -18,4 +23,8 @@
   color: white;
   opacity: .7;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.banner-container {
+
 }
