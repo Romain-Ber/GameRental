@@ -9,7 +9,9 @@
             <div class="booking-card">
               <p>Game: <%= booking.game.name %></p>
               <p>Status: <%= booking.status %></p>
-              <p>Price: <%= booking.game.price %>€</p>
+              <div class="game-card-signature">
+                <p style="text-align:center">Price: <%= booking.game.price %>€</p>
+              </div>
             </div>
           <% end %>
         <% end %>
