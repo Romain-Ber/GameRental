@@ -1,12 +1,11 @@
 .form {
-  background-color: rgba(255,255,255,0.6);
+  background-color: rgba(255, 255, 255, 0.6);
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 20px 20px;
-
+  padding: 20px;
   h1  {
     width: 100%;
-    margin-bottom: 20px; /* Espacement en bas */
+    margin-bottom: 20px;
   }
 
   input[type=text], textarea, input[type=email] {
@@ -26,13 +25,17 @@
   }
 
   input[type=submit] {
-    background-color: #1255a2;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    width: 100%; /* Ajuster la largeur */
+    color: #4A4A4A;
+    border: 1px solid #4A4A4A;
+    padding: 8px 24px;
+    margin: 4px;
+    border-radius: 5px;
+    font-weight: lighter;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+    box-shadow: inset 4px 4px 4px 0px rgba(255,255,255,.5),
+                7px 7px 20px 0px rgba(0,0,0,.3),
+                4px 4px 5px 0px rgba(0,0,0,.3);
   }
 
   input[type=submit]:hover {
@@ -43,4 +46,8 @@
 
 .container-spacer {
   height: 12px;
+}
+
+.container-spacer {
+  height: 12PX;
 }
