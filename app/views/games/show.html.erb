@@ -6,22 +6,50 @@
     <div class="row">
       <div class="col">
         <div class="game-card">
-        <div class="game-card-img">
-          <% if @game.photos.any? %>
-            <% @game.photos.each do |photo| %>
-              <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+          <div class="game-card-img">
+            <% if @game.photos.any? %>
+              <% @game.photos.each do |photo| %>
+                <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+              <% end %>
             <% end %>
-          <% end %>
           </div>
-        <div class="game-card-detail">
-          <br>
-          <p>Game: <%= @game.name %></p>
-          <p>Type: <%= @game.game_type %></p>
-          <p>Description: <%= @game.content %></p>
-          <p>Price: <%= @game.price %>€</p>
-          <p>@<%= @game.user.username %></p>
+          <div class="game-card-infos">
+            <div class="game-card-title">
+              <h2><%= @game.name %></h2>
+              <p><%= @game.game_type %></p>
+            </div>
+            <div class="game-card-text">
+              <p>Description: "<%= @game.content %>"</p>
+            </div>
+            <div class="game-card-signature">
+              <p><%= @game.price %>€</p>
+            </div>
+          </div>
         </div>
-      </div>
+        <div class="game-card">
+          <div class="game-card-infos">
+            <div class="game-card-text">
+              <h2>Informations :</h2>
+            </div>
+          </div>
+        </div>
+        <div class="game-card">
+          <div class="game-card-infos">
+            <div class="game-card-text">
+              <p><strong>Owner:</strong> <%= @game.user.username %></p>
+              <p><strong>Contact:</strong> <%= @game.user.email %></p>
+              <p><strong>Location:</strong> <%= @game.user.address %></p>
+            </div>
+          </div>
+        </div>
+        <div class="game-card">
+          <div class="game-card-infos">
+            <div class="game-card-text">
+              <% %>
+              <p><strong>Average Rating:</strong> 4.3 / 5</p>
+            </div>
+          </div>
+        </div>
         <%= link_to "Book this game", new_game_booking_path(@game), class: "btn btn-ghost" %>
       </div>
     </div>
@@ -43,17 +71,51 @@
     <%= link_to "Back to My Offers", my_offers_games_path, class: "btn btn-ghost py-2" %>
     <div class="row">
       <div class="col">
-        <div class="booking-card">
-          <p>Game: <%= @game.name %></p>
-          <p>Type: <%= @game.game_type %></p>
-          <p>Description: <%= @game.content %></p>
-          <p>Price: <%= @game.price %>€</p>
-          <br>
-          <% if @game.photos.any? %>
-            <% @game.photos.each do |photo| %>
-              <%= cl_image_tag photo.key, height: 300, width: 300, crop: :fill %>
+        <div class="game-card">
+          <div class="game-card-img">
+            <% if @game.photos.any? %>
+              <% @game.photos.each do |photo| %>
+                <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+              <% end %>
             <% end %>
-          <% end %>
+          </div>
+          <div class="game-card-infos">
+            <div class="game-card-title">
+              <h2><%= @game.name %></h2>
+              <p><%= @game.game_type %></p>
+            </div>
+            <div class="game-card-text">
+              <p>Description: "<%= @game.content %>"</p>
+            </div>
+            <div class="game-card-signature">
+              <p><%= @game.price %>€</p>
+            </div>
+          </div>
+        </div>
+        <div class="game-card">
+          <div class="game-card-infos">
+            <div class="game-card-text">
+              <h2>Informations :</h2>
+            </div>
+          </div>
+        </div>
+        <div class="game-card">
+          <div class="game-card-infos">
+            <div class="game-card-text">
+              <p><strong>Owner:</strong> <%= @game.user.username %></p>
+              <p><strong>Contact:</strong> <%= @game.user.email %></p>
+              <p><strong>Location:</strong> <%= @game.user.address %></p>
+            </div>
+          </div>
+        </div>
+        <div class="game-card">
+          <div class="game-card-infos">
+            <div class="game-card-text">
+              <% %>
+              <p><strong>Average Rating:</strong> 4.3 / 5</p>
+              <p><strong>Last Review:</strong> "Jeu en état correct, prise de contact facile, R.A.S, je recommande ce loueur de jeu!</p>
+            </div>
+          </div>
         </div>
         <%= link_to "Edit this offer", edit_game_path(@game), class: "btn btn-ghost py-2" %>
         <%= link_to "Remove", game_path(@game), data: {turbo_method: :delete, turbo_confirm: "Remove this game from my offers?"}, class: "btn btn-ghost py-2" %>
